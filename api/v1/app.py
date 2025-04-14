@@ -13,15 +13,18 @@ app = Flask(__name__)
 # register blueprints
 app.register_blueprint(app_views)
 
+
 @app.teardown_appcontext(Exception)
 def teardown_db(exception):
     """closes storage engine"""
     storage.close()
 
+
 @app.errorhandler(404)
 def error_handler(e):
     """handler for 404 errors"""
     return jsonify({"error": "Not found"}), 404
+
 
 if __name__ == "__main__":
     host = os.getenv('HBNB_API_HOST')
