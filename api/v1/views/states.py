@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""handles all default RESTFul API actions"""
+"""handles all default RESTFul API actions for State"""
 from api.v1.views import states_views
 from models import storage
 from models.state import State
