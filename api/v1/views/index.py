@@ -10,6 +10,7 @@ def status_api():
     """Tests the status of API"""
     return jsonify({"status": "OK"})
 
+
 @app_views.route('/stats')
 def stats():
     """retrieves the number of each objects"""
@@ -19,7 +20,7 @@ def stats():
         # change key into lower case for returned JSON
         key = key.lower()
         # convert keys into plurals
-        # yes, i was bored  
+        # yes, i was bored
         if key.endswith('y'):
             key = key.replace('y', 'ies')
         else:

@@ -17,6 +17,7 @@ app.register_blueprint(states_views)
 app.register_blueprint(cities_views)
 app.register_blueprint(amenities_views)
 
+
 @app.teardown_appcontext(Exception)
 def teardown_db(exception):
     """closes storage engine"""

@@ -46,7 +46,7 @@ def delete_state(state_id):
 def create_state():
     """creates and returns a State object"""
     # check HTTP body for a valid JSON
-    # if using cURL, append "Content-Type" header for is_json 
+    # if using cURL, append "Content-Type" header for is_json
     # property to check for valid JSON.
     if not request.is_json:
         return js({"error": "Not a JSON"}), 400
@@ -72,7 +72,7 @@ def update_state(state_id):
     # retrieve json
     request_info = request.get_json()
     # check for keys to be updated
-    attrs_to_ignore =  ["id", "created_at", "updated_at"]
+    attrs_to_ignore = ["id", "created_at", "updated_at"]
     for attr, value in request_info.items():
         if attr not in attrs_to_ignore:
             state.__setattr__(attr, value)
