@@ -87,11 +87,9 @@ def update_city(city_id):
         attrs_to_ignore = ["id", "state_id", "created_at", "updated_at"]
         for attr, value in request_info.items():
             if attr not in attrs_to_ignore:
-                city.__dict__[attr] = value
+                city.__setattr__(attr, value)
         # persist changes to storage engine
         storage.save()
         return js(city.to_dict()), 200
     except Exception as e:
         return js({"error": "{}".format(e)})
-            
-
